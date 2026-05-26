@@ -542,138 +542,307 @@ nav {
   max-width: 100%;
 }
 
+/* =========================================================
+   FEATURED PROJECTS - PREMIUM MODERN CARD DESIGN
+========================================================= */
+
 .project__list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Desktop: 3 Columns */
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 2rem;
-  margin-top: 2rem;
-  max-width: var(--max-width);
-  margin-inline: auto;
+  margin-top: 4rem;
 }
+
+/* ================= CARD ================= */
 
 .project__card {
-  display: flex;
-  flex-direction: column; /* Stack image and content vertically */
-  background-color: #ffffff;
-  border-radius: 1.5rem;
-  overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  height: 100%; /* Ensures all cards in a row have equal height */
-}
-
-.project__card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
-}
-
-.project__image {
   position: relative;
-  height: 220px; /* Fixed height for visual consistency in the grid */
-  background-color: #f8f9fa;
-}
+  overflow: hidden;
 
-.project__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  background: rgba(255, 255, 255, 0.96);
 
-.project__content {
-  padding: 1.5rem;
-  flex-grow: 1; /* Makes the content area fill the card */
+  border-radius: 28px;
+
+  padding: 2rem;
+
+  border: 1px solid rgba(226, 83, 83, 0.568);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 5px 15px rgba(255, 0, 0, 0.05);
+
+  transition: all 0.45s ease;
+
   display: flex;
   flex-direction: column;
+
+  height: 100%;
 }
+
+/* TOP GLOW */
+
+.project__card::before {
+  content: "";
+
+  position: absolute;
+
+  top: -80px;
+  right: -80px;
+
+  width: 220px;
+  height: 220px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 0, 0, 0.10),
+      transparent 70%
+    );
+
+  z-index: 0;
+}
+
+/* HOVER */
+
+.project__card:hover {
+  transform: translateY(-12px);
+
+  box-shadow:
+    0 20px 45px rgba(255, 0, 0, 0.15),
+    0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* CONTENT */
+
+.project__content {
+  position: relative;
+  z-index: 2;
+}
+
+/* ================= TITLE ================= */
 
 .project__content h3 {
-  font-size: 1.2rem;
-  color: #1e293b;
-  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
   line-height: 1.4;
-}
-
-.project__badge {
-  position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
-  padding: 0.6rem 1.2rem;
-  background-color: #eb3225; /* Primary Blue */
-  color: #ffffff;
-  border-radius: 50px;
-  font-size: 0.85rem;
+  font-family:Georgia, 'Times New Roman', Times, serif;
   font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+
+  color: #993a3a;
+
+  margin-bottom: 1rem;
+
+  position: relative;
 }
 
-.project__badge.efficiency { background-color: #ee2121; } 
-.project__badge.npd { background-color: #fa2929; } 
+/* RED UNDERLINE */
 
+.project__content h3::after {
+  content: "";
 
+  position: absolute;
+
+  left: 0;
+  bottom: -10px;
+
+  width: 40%;
+  height: 4px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff2d2d,
+      #8b0000
+    );
+}
+
+/* ================= ROLE BADGE ================= */
 
 .project__role {
-  color: #f71515;
-  font-weight: 700;
-  font-size: 0.95rem;
-  margin-bottom: 1.2rem;
-  display: flex;
+  display: inline-flex;
+
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
+
+  width: fit-content;
+
+  padding: 0.75rem 1.2rem;
+
+  margin:
+    1.6rem 0 1.5rem;
+
+  border-radius: 50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff1f1,
+      #ffe3e3
+    );
+
+  color: #d11e1e;
+
+  font-size: 0.9rem;
+
+  font-weight: 700;
+
+  border:
+    1px solid rgba(255,0,0,0.08);
 }
 
+/* ================= SUMMARY ================= */
+
 .project__summary {
-  color: #8b6464;
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+  color: #555;
+
+  line-height: 1.9;
+
+  font-size: 0.96rem;
+
+  margin-bottom: 1.8rem;
 }
+
+/* ================= TAGS ================= */
 
 .project__tags {
   display: flex;
-  gap: 0.75rem;
+
   flex-wrap: wrap;
+
+  gap: 0.8rem;
+
   margin-bottom: 2rem;
 }
 
 .project__tags span {
-  padding: 0.4rem 1rem;
-  background-color: #f8e4e4;
-  color: #d82626;
-  border-radius: 8px;
-  font-size: 0.8rem;
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.65rem 1rem;
+
+  border-radius: 50px;
+   background:
+    linear-gradient(
+      135deg,
+      #ff2d2d,
+      #8b0000
+    );   
+  color: #fcfcfc;
+
+  font-size: 0.78rem;
+
   font-weight: 700;
-  border: 1px solid #dbeafe;
+
+  border: 1px solid rgba(255,0,0,0.08);
+
+  white-space: nowrap;
+
+  transition: all 0.35s ease;
 }
+
+/* TAG HOVER */
+
+.project__tags span:hover {
+  transform:
+    translateY(-4px)
+    scale(1.05);
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff3f3,
+      #ffe8e8
+    );
+
+  color: rgb(241, 15, 15);
+
+  box-shadow:
+    0 8px 20px rgba(255,0,0,0.25);
+}
+
+/* ================= DETAILS ================= */
 
 .project__details {
   list-style: none;
-  border-top: 1px solid #f1f5f9;
+
+  margin-top: auto;
+
   padding-top: 1.5rem;
+
+  border-top:
+    1px solid rgba(0,0,0,0.08);
 }
 
 .project__details li {
-  font-size: 0.95rem;
-  color: #2e1c1c;
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
   position: relative;
-  line-height: 1.5;
+
+  padding-left: 1.6rem;
+
+  margin-bottom: 1rem;
+
+  color: #444;
+
+  line-height: 1.8;
+
+  font-size: 0.93rem;
 }
+
+/* RED BULLETS */
 
 .project__details li::before {
   content: "";
+
   position: absolute;
+
   left: 0;
   top: 10px;
-  width: 8px;
-  height: 8px;
-  background-color: #eb2525;
+
+  width: 10px;
+  height: 10px;
+
   border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff2d2d,
+      #8b0000
+    );
+
+  box-shadow:
+    0 0 12px rgba(255,0,0,0.35);
 }
+
+/* =========================================================
+   MOBILE RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .project__list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .project__card {
+    padding: 1.5rem;
+    border-radius: 24px;
+  }
+
+  .project__content h3 {
+    font-size: 1.25rem;
+    line-height: 1.6;
+  }
+
+  .project__summary {
+    font-size: 0.92rem;
+  }
+
+}
+
 
 .filter-btn {
   background: white;
@@ -1053,79 +1222,78 @@ nav {
     display: block;
   }
 
- 
-  .header__container {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    padding: 6rem 1.5rem 2rem 1.5rem !important;
-    height: auto !important;
-    gap: 2.5rem !important;
+   .header__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 7rem 1.5rem 3rem;
+    gap: 2rem;
+    text-align: center;
   }
 
-  /* 2. Remove any fixed widths or margins from text */
+  /* TEXT FIRST */
   .header__content {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0;
   }
 
-  /* 3. Center the description and buttons */
-  .header__content .section__description {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    max-width: 100% !important;
-  }
-
-  .header__content h1{
-  font-size: 2.3rem !important;
-  line-height: 3rem !important;
-  word-spacing: 3px;
-}
-
-.header__content h2{
-  font-size: 1.1rem !important;
-  letter-spacing: 1px;
-}
-
-  .header__btns {
-    justify-content: center !important;
-    width: 100% !important;
-  }
-
-  /* 4. Make the image round and centered */
+  /* IMAGE SECOND */
   .header__image {
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-    position: relative !important;
-    top: 0 !important;
-    right: 0 !important;
+    order: 2;
+    width: 290px;
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    
   }
-
   .header__image img {
-    width: 260px !important;      /* Fixed size for a perfect circle */
-    height: 300px !important;     /* Height must match width */
-    object-fit: cover !important; /* Prevents stretching */
-    border-radius: 50% !important; /* Makes it round */
-    border: 3px solid var(--white); /* Optional: adds a nice border */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 220px !important;
+    height: 250px !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
     margin: 0 auto !important;
-    top: 25px;
-    left: 10px;
   }
 
-  .image__container {
-    margin-inline: auto; /* Centers the image box itself */
-    max-width: 280px; 
-    margin-bottom: 2rem;
+  /* DESCRIPTION + BUTTON BELOW IMAGE */
+  .header__content .section__description {
+    order: 3;
+    text-align: center;
+    max-width: 95%;
+    margin: 2rem auto 1.5rem auto !important;
+    font-size: 16px;
+    line-height: 1.8rem;
   }
 
-  /* Ensures the decorative 'Ghost Frame' stays aligned with the centered image */
-  .image__container::before {
-    left: 25px; 
-    top: 25px;
+  .header__btn {
+    order: 4;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .header__btn .btn {
+    margin-left: 0 !important;
+  }
+
+  .header__content h1 {
+    font-size: 2.5rem !important;
+    line-height: 3rem !important;
+    margin-bottom: 1rem;
+    text-align: center;
+    margin-top: 100px;
+  }
+
+  .header__content h2 {
+    font-size: 1.2rem !important;
+    margin-bottom: 0;
+    text-align: center;
+    letter-spacing: 1px;
   }
   
   .about__container {
@@ -1145,6 +1313,7 @@ nav {
 
    .project__card {
     grid-template-columns: 400px 1fr;
+    padding: 1.5rem;
   }
 
 
@@ -1161,18 +1330,16 @@ nav {
     grid-row: span 2 !important; /* Maintains the desktop 'masonry' look */
   }
 
-  .project__list {
+   .project__list {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
-  .project__card {
-    max-width: 450px;
-    margin-inline: auto;
-  }
+  
 
-  .project__image {
+  /* .project__image {
     height: 200px;
-  }
+  } */
 
   .project__tags {
     gap: 0.5rem;
