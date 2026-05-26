@@ -1282,15 +1282,15 @@ nav {
   }
 
   .header__content h1 {
-    font-size: 2.5rem !important;
-    line-height: 3rem !important;
+    font-size: 2.2rem !important;
+    line-height: 2rem !important;
     margin-bottom: 1rem;
     text-align: center;
     margin-top: 100px;
   }
 
   .header__content h2 {
-    font-size: 1.2rem !important;
+    font-size: 1rem !important;
     margin-bottom: 0;
     text-align: center;
     letter-spacing: 1px;
@@ -1300,6 +1300,14 @@ nav {
     grid-template-columns: 1fr; /* Reset grid to a single column */
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .about__content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .about__content p {
+    font-size: 0.2rem;
   }
 
   .about__content,
