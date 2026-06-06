@@ -20,23 +20,38 @@ const revealSelectors = [
   ".about__btn",
   ".section__header",
   ".section__description",
-  ".skill__card",
+  ".tool__card",          /* Added for staggered card popups */
+  ".core__card",          /* Added for shift effects */
+  ".pro__item",
   ".project__card",
   ".contact__card",
   ".footer",
 ];
 
+// SINGLE COMBINED OBSERVER: Handles scroll-reveals and progress bar loading together
 const revealObserver = new IntersectionObserver(
   (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
+        // 1. Reveal the element onto the screen
         entry.target.classList.add("visible");
+        
+        // 2. If it's a tool card, grab its nested skill span and trigger width expansion
+        if (entry.target.classList.contains("tool__card")) {
+          const bar = entry.target.querySelector(".tool__bar span");
+          if (bar) {
+            const width = bar.getAttribute("data-width");
+            bar.style.width = width;
+          }
+        }
+
+        // Stop watching this specific item since its animation is done
         observer.unobserve(entry.target);
       }
     });
   },
   {
-    threshold: 0.15,
+    threshold: 0.15, // Triggers when 15% of the element is visible
   }
 );
 
@@ -71,67 +86,20 @@ function wrapWords(element, className) {
   });
 }
 
-const animateSkills = () => {
-  const counters = document.querySelectorAll(".count-up");
-
-  const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        // 1. Animate the Progress Bar (Width)
-        const progress = entry.target.querySelector(".progress");
-        if (progress) {
-          const width = progress.getAttribute("data-width");
-          setTimeout(() => {
-            progress.style.width = width;
-          }, 500); // Small delay to ensure visibility
-        }
-
-        // 2. Animate the Percentage Numbers (Counting)
-        const counters = entry.target.querySelectorAll(".count-up");
-        counters.forEach((counter) => {
-          const target = +counter.getAttribute("data-target");
-          const duration = 2000; // 2 seconds to match the CSS transition
-          const increment = target / (duration / 16); // ~60fps logic
-
-          let currentCount = 0;
-          const updateCount = () => {
-            currentCount += increment;
-            if (currentCount < target) {
-              counter.innerText = Math.ceil(currentCount);
-              requestAnimationFrame(updateCount);
-            } else {
-              counter.innerText = target;
-            }
-          };
-          updateCount();
-        });
-
-        // Stop observing once animation is triggered
-        skillObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 }); // Trigger when 50% of the card is visible
-
-  // Observe each skill card
-  document.querySelectorAll(".skill__card").forEach((card) => {
-    skillObserver.observe(card);
-  });
-};
-
-// Initialize the function
-document.addEventListener("DOMContentLoaded", animateSkills);
-
 document.addEventListener("DOMContentLoaded", () => {
+  // 1. Gather all elements matches from your reveal selectors
   const revealElements = revealSelectors.flatMap((selector) =>
     Array.from(document.querySelectorAll(selector))
   );
 
+  // 2. Filter out duplicates and observe them
   const uniqueElements = [...new Set(revealElements)];
   uniqueElements.forEach((element) => {
     element.classList.add("scroll-reveal");
     revealObserver.observe(element);
   });
 
+  // 3. Header Text & Elements split layout handling
   const headerText = document.querySelector(".header__content");
   const headerImage = document.querySelector(".header__image");
 
@@ -153,4 +121,3 @@ document.addEventListener("DOMContentLoaded", () => {
     revealObserver.observe(headerImage);
   }
 });
-
