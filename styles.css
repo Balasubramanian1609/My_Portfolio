@@ -277,12 +277,12 @@ nav {
 }
 
 .header__content h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   line-height: 4.5rem;
   margin-bottom: 1rem;
   color: rgb(255, 255, 255);
   letter-spacing: 2px;
-  word-spacing: 10px;
+  word-spacing: 8px;
   font-weight: 800;
 }
 
@@ -1360,7 +1360,7 @@ nav {
   }
 
   .header__content h1 {
-    font-size: 1.9rem !important;
+    font-size: 1.5rem !important;
     line-height: 2rem !important;
     margin-bottom: 1rem;
     text-align: center;
