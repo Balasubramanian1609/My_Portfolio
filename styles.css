@@ -189,7 +189,7 @@ body {
 #about, #service, #projects, #portfolio, #experience, #contact {
   margin: 0;
   width: 100%;
-  background:  url("images/back3.jpg") center center / cover no-repeat fixed;
+  background:  url("images/back1.jpg") center center / cover no-repeat fixed;
   border-top: 1px solid rgba(255, 255, 255, 0.1); /* Smooths the transition line */
 }
 
@@ -431,7 +431,7 @@ nav {
 
 
 .skills__section {
-  background: url("images/back3.jpg") center center / cover no-repeat fixed !important;
+  background: url("images/back1.jpg") center center / cover no-repeat fixed !important;
   /* padding: 6rem 2rem; */
   width: 100%;
   overflow: hidden; /* Prevents any layout leaks on the right side */
