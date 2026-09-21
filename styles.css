@@ -184,12 +184,12 @@ body {
   display: flex;
   align-items: center;
   /* Adjust the overlay (0.5) to make it lighter or darker */
-  background: linear-gradient(rgba(0, 0, 0, 0.322), rgba(0, 0, 0, 0.233)),url("images/bgkim.jpg") center center / cover no-repeat fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.322), rgba(0, 0, 0, 0.233)),url("images/back4.jpg") center center / cover no-repeat fixed;
 }
 #about, #service, #projects, #portfolio, #experience, #contact {
   margin: 0;
   width: 100%;
-  background:  url("images/bg1.jpg") center center / cover no-repeat fixed;
+  background:  url("images/back3.jpg") center center / cover no-repeat fixed;
   border-top: 1px solid rgba(255, 255, 255, 0.1); /* Smooths the transition line */
 }
 
@@ -415,7 +415,7 @@ nav {
   margin-inline: auto; /* Center the paragraph box */
   margin-bottom: 2rem;
   max-width: 100%; /* Allow it to use the container width */
-  font-size: 20px;
+  font-size: 18px;
   color: #5a1c17;
   font-weight: 500;
 }
@@ -431,7 +431,7 @@ nav {
 
 
 .skills__section {
-  background: url("images/bg1.jpg") center center / cover no-repeat fixed !important;
+  background: url("images/back3.jpg") center center / cover no-repeat fixed !important;
   /* padding: 6rem 2rem; */
   width: 100%;
   overflow: hidden; /* Prevents any layout leaks on the right side */
@@ -613,6 +613,104 @@ nav {
   box-shadow: 0 5px 15px rgba(206, 39, 39, 0.2);
 }
 
+
+/* ================= CERTIFICATIONS SINGLE CARD WITH BULLETS ================= */
+
+.certifications__single-card {
+  margin-top: 3rem;
+  max-width: 800px; /* Reduces left and right size/width */
+  margin-left: auto; /* Centers the card horizontally */
+  margin-right: auto; /* Centers the card horizontally */
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 24px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(226, 83, 83, 0.25);
+}
+
+/* Title line with solid background styling */
+.certifications__single-card .skills__group-label {
+  background: #fff0f0; /* Highlight background color */
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  border-bottom: 2px solid #bb2c2c;
+  color: #111111;
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.certifications__single-card .skills__group-label i {
+  color: #ff2d2d;
+  font-size: 1.5rem;
+}
+
+.cert__bullet-list {
+  list-style: none;
+  margin-top: 1.8rem;
+  padding-left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.cert__bullet-list li {
+  position: relative;
+  padding-left: 1.8rem;
+  font-size: 0.98rem;
+  color: #444444;
+  line-height: 1.6;
+  transition: transform 0.2s ease;
+}
+
+.cert__bullet-list li:hover {
+  transform: translateX(5px);
+  color: #111111;
+}
+
+/* Custom Red Bullet Marker */
+.cert__bullet-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff2d2d, #7c392e);
+  box-shadow: 0 0 8px rgba(255, 45, 45, 0.4);
+}
+
+.cert__bullet-list li strong {
+  color: #111111;
+  font-weight: 600;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 576px) {
+  .certifications__single-card {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+
+  .certifications__single-card .skills__group-label {
+    padding: 0.6rem 0.9rem;
+    font-size: 1.05rem;
+  }
+
+  .cert__bullet-list li {
+    font-size: 0.9rem;
+    padding-left: 1.5rem;
+  }
+
+  .cert__bullet-list li::before {
+    top: 0.5rem;
+    width: 7px;
+    height: 7px;
+  }
+}
 
 
 
